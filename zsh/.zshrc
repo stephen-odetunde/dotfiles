@@ -122,3 +122,22 @@ export AWS_ACCESS_KEY_ID=$(echo $OUT | jq -r '.Credentials''.AccessKeyId');\
 export AWS_SECRET_ACCESS_KEY=$(echo $OUT | jq -r '.Credentials''.SecretAccessKey');\
 export AWS_SESSION_TOKEN=$(echo $OUT | jq -r '.Credentials''.SessionToken');
 }
+
+function git-delete-remote() {
+if [ -n "$1" ]
+then
+    git push origin --delete $1
+else
+    echo No branch seleted 
+fi
+}
+
+function gc-a() {
+git add .
+if [ -n "$1" ]
+then
+    git commit -m \"$1\"
+else
+    git commit 
+fi
+}
