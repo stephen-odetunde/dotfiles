@@ -132,12 +132,22 @@ else
 fi
 }
 
-function gc-a() {
+function gac() {
 git add .
 if [ -n "$1" ]
 then
     git commit -m \"$1\"
 else
     git commit 
+fi
+}
+
+
+function g-b() {
+if [ -n "$1" ]
+then
+    git checkout -b $1
+else
+    echo No branch provided 
 fi
 }
